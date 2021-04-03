@@ -50,7 +50,7 @@ public class MyWorld extends World
         
         loc = new Locomotive(Direction.RIGHT);
         wagon1 = new Wagon();
-        wagon2 = new Wagon();
+        wagon2 = new Wagon(Direction.LEFT);
         
         train = new Train(loc, wagon1, wagon2);
         

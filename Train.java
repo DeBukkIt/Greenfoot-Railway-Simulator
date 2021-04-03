@@ -13,7 +13,7 @@ public class Train
     public Train() {
         this.vehicles = new ArrayList<RailVehicle>();
         
-        this.gear = Gear.FORWARD;
+        this.gear = Gear.BACKWARD;
     }
     
     public Train(Locomotive loc) {
@@ -128,8 +128,13 @@ public class Train
                     this.getVehicle(i).setLocation(this.getVehicle(i-1).getX(), this.getVehicle(i-1).getY());
                 }
                 this.getFirstVehicle().setLocation(oldX, oldY);
+                // TODO CHANCE DIRECTION OF NON-LEADING, BUT TERMINATING VEHICLE, IN CASE TRAIN CHANGES DIRECTION!
             } else {
-                // TODO
+                this.getLoc().setLocation(this.getFirstVehicle().getX(), this.getFirstVehicle().getY());
+                for(int i = 0; i < this.vehicles.size() - 2; i++) {
+                    this.getVehicle(i).setLocation(this.getVehicle(i+1).getX(), this.getVehicle(i+1).getY());
+                }
+                // TODO MOVE PRE-LAST VEHICLE TO OLD!!! POSITION OF LEADING VEHICLE
             }
             
             // Update leading vehicle with new direction (the one of the next leading track)

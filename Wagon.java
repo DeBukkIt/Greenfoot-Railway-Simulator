@@ -8,6 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
  */
 public class Wagon extends RailVehicle
 {
+    
+    public Wagon() {
+        this.setDirection(Direction.LEFT);
+    }
+    
+    public Wagon(Direction initialDirection) {
+        super();
+        this.setDirection(initialDirection);        
+    }
+    
     /**
      * Act - tut, was auch immer Wagon tun will. Diese Methode wird aufgerufen, 
      * sobald der 'Act' oder 'Run' Button in der Umgebung angeklickt werden. 
