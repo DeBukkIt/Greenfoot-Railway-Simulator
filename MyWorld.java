@@ -9,6 +9,8 @@ import java.util.List;
  */
 public class MyWorld extends World
 {    
+    Train train;
+    
     public MyWorld()
     {    
         // Create a new world with 32x22 cells with a cell size of 32x32 pixels.
@@ -30,6 +32,10 @@ public class MyWorld extends World
             bg.drawLine(0, y * getCellSize(), getWidth() * getCellSize(), y * getCellSize());
         }
     }
+    
+    public void act() {
+        train.act();
+    }
 
     /**
      * Bereite die Welt für den Programmstart vor.
@@ -37,10 +43,18 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        // Place objects
-        Wagon wagon2 = new Wagon();
-        Wagon wagon1 = new Wagon(wagon2);
-        Locomotive loc = new Locomotive(wagon1, Direction.RIGHT);
+        // Init train
+        Locomotive loc;
+        Wagon wagon1 = null;
+        Wagon wagon2 = null;
+        
+        loc = new Locomotive(Direction.RIGHT);
+        wagon1 = new Wagon();
+        wagon2 = new Wagon();
+        
+        train = new Train(loc, wagon1, wagon2);
+        
+        // Place objets
 
         wagon2.setLocation(4,4);
         TrackHorizontal trackHorizontal = new TrackHorizontal();

@@ -8,14 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
  */
 public class Wagon extends RailVehicle
 {
-    public Wagon() {
-        this(null);
-    }
-    
-    public Wagon(RailVehicle nextRailVehicle) {
-        super(nextRailVehicle);
-    }
-    
     /**
      * Act - tut, was auch immer Wagon tun will. Diese Methode wird aufgerufen, 
      * sobald der 'Act' oder 'Run' Button in der Umgebung angeklickt werden. 

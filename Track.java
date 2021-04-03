@@ -1,6 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
-import java.util.Set;
-import java.util.HashSet;
 
 /**
  * Ergänzen Sie hier eine Beschreibung für die Klasse Track.

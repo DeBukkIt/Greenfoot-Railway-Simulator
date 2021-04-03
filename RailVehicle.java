@@ -8,39 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
  */
 public abstract class RailVehicle extends Actor
 {
-    private RailVehicle nextRailVehicle; // TODO Also add reference to other neighbour vehicle to be able to move the train in other direction
+    Direction direction;
     
-    public RailVehicle() {
-        this(null);
+    public Direction getDirection() {
+        return this.direction;
     }
     
-    public RailVehicle(RailVehicle nextRailVehicle) {
-        this.nextRailVehicle = nextRailVehicle;
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
     
-    public boolean hasNextRailVehicle() {
-        return nextRailVehicle != null;
+    public Track getTrackBelow() {
+        return this.getObjectsInRange(0, Track.class).get(0);
     }
-    
-    public RailVehicle getNextRailVehicle() {
-        return this.nextRailVehicle;
-    }
-    
-    public void setNextRailVehicle(RailVehicle nextRailVehicle) {
-        this.nextRailVehicle = nextRailVehicle;
-    }
-    
-    public void moveAsTrainTo(int newX, int newY) {
-        // Remember my old position
-        int myOldX = getX();
-        int myOldY = getY();
         
-        // Move
-        setLocation(newX, newY);
-        
-        // Let the next vehicle in train move, too (if there is one)
-        if(nextRailVehicle != null) {
-            nextRailVehicle.moveAsTrainTo(myOldX, myOldY);
-        }
+    public boolean isOnTrack() {
+        return this.getTrackBelow() != null;
     }
 }
