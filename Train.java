@@ -151,6 +151,12 @@ public class Train
         }
     }
     
+    public void decouple() {
+        if(this.hasVehicles()) {
+            this.removeVehicle(this.getNumberOfVehicles() - 1);
+        }
+    }
+    
     public void move() {
         if(isCrashed()) {
             System.err.println("Train can't move, it's crashed");
