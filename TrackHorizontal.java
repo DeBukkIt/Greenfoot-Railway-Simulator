@@ -16,4 +16,12 @@ public class TrackHorizontal extends Track
         return this.getNeighbourAt(movingDirection);
     }
     
+    public Direction getReversedDirection(Direction movingDirection) {
+        switch(movingDirection) {
+            case LEFT: return Direction.RIGHT;
+            case RIGHT: return Direction.LEFT;
+            default: return Direction.RIGHT;
+        }
+    }
+    
 }

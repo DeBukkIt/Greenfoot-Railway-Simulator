@@ -25,4 +25,11 @@ public class TrackCurveRightBottom extends Track
         return this.getNeighbourAt(newDirection);
     }
     
+    public Direction getReversedDirection(Direction movingDirection) {
+        switch(movingDirection) {
+            case TOP: return Direction.LEFT;
+            case LEFT: return Direction.TOP;
+            default: return Direction.LEFT;
+        }
+    }
 }

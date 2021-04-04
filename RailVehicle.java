@@ -46,12 +46,9 @@ public abstract class RailVehicle extends Actor
     
     public void invertDirection() {
         // This is needed for gear changes (forward/backward)
-        switch(direction) {
-            case LEFT: direction = Direction.RIGHT; break;
-            case RIGHT: direction = Direction.LEFT; break;
-            case TOP: direction = Direction.BOTTOM; break;
-            case BOTTOM: direction = Direction.TOP; break;
-        }
+        // TODO This IS NOT always the opposite, but depends on the track below:
+        // a movement to the LEFT onto a bottom-right curve must be "inverted" to TOP
+        direction = getTrackBelow().getReversedDirection(direction);
     }
     
 }

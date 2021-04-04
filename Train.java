@@ -150,7 +150,6 @@ public class Train
                     this.getVehicle(i).moveTo(this.getVehicle(i-1).getX(), this.getVehicle(i-1).getY());
                 }
                 this.getFirstVehicle().moveTo(oldX, oldY);
-                // TODO CHANCE DIRECTION OF NON-LEADING, BUT TERMINATING VEHICLE, IN CASE TRAIN CHANGES DIRECTION!
             } else {
                 this.getLoc().moveTo(this.getFirstVehicle().getX(), this.getFirstVehicle().getY());
                 for(int i = 0; i < this.vehicles.size() - 2; i++) {

@@ -16,4 +16,12 @@ public class TrackVertical extends Track
         return this.getNeighbourAt(movingDirection);
     }
     
+    public Direction getReversedDirection(Direction movingDirection) {
+        switch(movingDirection) {
+            case TOP: return Direction.BOTTOM;
+            case BOTTOM: return Direction.TOP;
+            default: return Direction.BOTTOM;
+        }
+    }
+    
 }

@@ -31,6 +31,15 @@ public class TrackSwitchRightBottom extends Track
         return this.getNeighbourAt(newDirection);
     }
     
+    public Direction getReversedDirection(Direction movingDirection) {
+        switch(movingDirection) {
+            case RIGHT: return isSwitched ? Direction.TOP : Direction.LEFT;
+            case LEFT: return isSwitched ? Direction.BOTTOM : Direction.RIGHT;
+            case TOP: return Direction.RIGHT;
+            default: return Direction.RIGHT;
+        }
+    }
+    
     public void setSwitched(boolean switched) {
         this.isSwitched = switched;
     }

@@ -18,6 +18,12 @@ public abstract class Track extends Actor
     
     public abstract Track determineNextTrack(Direction movingInDirection);
     
+    public abstract Direction getReversedDirection(Direction movingDirection);
+    
+    public TrackType getTrackType() {
+        return this.trackType;
+    }
+    
     public void findNeighbouringTracks() {
         neighbouringTracks = new Track[4];
         
