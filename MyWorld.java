@@ -38,7 +38,7 @@ public class MyWorld extends World
         train.act();
         
         Random rnd = new Random();
-        if(rnd.nextInt(100) < 5) {
+        if(rnd.nextInt(100) < 2) {
             train.reverseGear();
         }
     }
@@ -53,12 +53,16 @@ public class MyWorld extends World
         Locomotive loc;
         Wagon wagon1 = null;
         Wagon wagon2 = null;
+        Wagon wagon3 = null;
+        Wagon wagon4 = null;
         
         loc = new Locomotive(Direction.RIGHT);
-        wagon1 = new Wagon();
+        wagon1 = new Wagon(Direction.LEFT);
         wagon2 = new Wagon(Direction.LEFT);
+        wagon3 = new Wagon(Direction.LEFT);
+        wagon4 = new Wagon(Direction.LEFT);
         
-        train = new Train(loc, wagon1, wagon2);
+        train = new Train(loc, wagon1, wagon2, wagon3, wagon4);
         
         // Place objets
 
@@ -283,9 +287,12 @@ public class MyWorld extends World
         TrackHorizontal trackHorizontal40 = new TrackHorizontal();
         addObject(trackHorizontal40,7,11);
 
+        addObject(wagon4, 5, 4);
+        addObject(wagon3, 6, 4);
         addObject(wagon2, 7, 4);
         addObject(wagon1, 8, 4);
         addObject(loc, 9, 4);
+        
     }
     
     private void initTrackEnvironments() {

@@ -110,7 +110,7 @@ public class Train
     public RailVehicle getLeadingVehicle() {
         switch(gear) {
             case FORWARD: return loc;
-            case BACKWARD: return getLastVehicle();
+            case BACKWARD: return hasVehicles() ? getLastVehicle() : loc;
             default: return loc;
         }
     }
@@ -138,25 +138,27 @@ public class Train
         if(nextLeadingTrack == null) {
             onCrash();
         } else {
-        
-            // Save old location of leading vehicle
-            int oldX = leadingVehicle.getX();
-            int oldY = leadingVehicle.getY();
-            // Move leading vehicle, let all other vehicles follow
-            leadingVehicle.moveTo(nextLeadingTrack.getX(), nextLeadingTrack.getY());
             // Depending on gear
             if(gear == Gear.FORWARD) {
-                for(int i = this.vehicles.size() - 1; i > 0; i--) {
-                    this.getVehicle(i).moveTo(this.getVehicle(i-1).getX(), this.getVehicle(i-1).getY());
+                // Only move vehicles if there are any at all
+                if(this.hasVehicles()) {
+                    for(int i = this.vehicles.size() - 1; i > 0; i--) {
+                        this.getVehicle(i).moveTo(this.getVehicle(i-1).getX(), this.getVehicle(i-1).getY());
+                    }
+                    this.getFirstVehicle().moveTo(leadingVehicle.getX(), leadingVehicle.getY());
                 }
-                this.getFirstVehicle().moveTo(oldX, oldY);
-            } else {
+            } else /* gear = Gear.BACKWARD */ {
+                // There's always a loc, move it first
                 this.getLoc().moveTo(this.getFirstVehicle().getX(), this.getFirstVehicle().getY());
-                for(int i = 0; i < this.vehicles.size() - 2; i++) {
-                    this.getVehicle(i).moveTo(this.getVehicle(i+1).getX(), this.getVehicle(i+1).getY());
+                // If there are more vehicles (except leading wagon and the loc), move them, too
+                if(this.getNumberOfVehicles() > 1) {                    
+                    for(int i = 0; i < this.vehicles.size() - 1; i++) {
+                        this.getVehicle(i).moveTo(this.getVehicle(i+1).getX(), this.getVehicle(i+1).getY());
+                    }
                 }
-                this.getVehicle(this.vehicles.size()-2).moveTo(oldX, oldY);
             }
+            // Move leading vehicle, let all other vehicles already followed ;-)
+            leadingVehicle.moveTo(nextLeadingTrack.getX(), nextLeadingTrack.getY());
             
             // Update leading vehicle with new direction (the one of the next leading track)
             leadingVehicle.setDirection(nextLeadingDirection);
