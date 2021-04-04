@@ -25,4 +25,33 @@ public abstract class RailVehicle extends Actor
     public boolean isOnTrack() {
         return this.getTrackBelow() != null;
     }
+    
+    public void moveTo(int newX, int newY) {
+        // Remember old coordinates
+        int oldX = getX();
+        int oldY = getY();
+        // Call super class function
+        super.setLocation(newX, newY);
+        // Update direction attribute depending on position change    
+        if(newX > oldX) {
+            direction = Direction.RIGHT;
+        } else if(newX < oldX) {
+            direction = Direction.LEFT;
+        } else if(newY > oldY) {
+            direction = Direction.BOTTOM;
+        } else if(newY < oldY) {
+            direction = Direction.TOP;
+        }       
+    }
+    
+    public void invertDirection() {
+        // This is needed for gear changes (forward/backward)
+        switch(direction) {
+            case LEFT: direction = Direction.RIGHT; break;
+            case RIGHT: direction = Direction.LEFT; break;
+            case TOP: direction = Direction.BOTTOM; break;
+            case BOTTOM: direction = Direction.TOP; break;
+        }
+    }
+    
 }

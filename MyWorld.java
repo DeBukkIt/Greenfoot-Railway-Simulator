@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
+import java.util.Random;
 
 /**
  * Write a description of class MyWorld here.
@@ -35,6 +36,11 @@ public class MyWorld extends World
     
     public void act() {
         train.act();
+        
+        Random rnd = new Random();
+        if(rnd.nextInt(100) < 5) {
+            train.reverseGear();
+        }
     }
 
     /**
