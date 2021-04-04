@@ -35,7 +35,20 @@ public class MyWorld extends World
     }
     
     public void act() {
-        train.move();
+        boolean keyDownM = Greenfoot.isKeyDown("m");
+        boolean keyDownR = Greenfoot.isKeyDown("r");
+        boolean keyDownC = Greenfoot.isKeyDown("c");
+        boolean keyDownD = Greenfoot.isKeyDown("d");
+        
+        if(keyDownM) {
+            train.move();
+        } else if(keyDownR) {
+            train.reverseGear();
+        } else if(keyDownC) {
+            train.couple();
+        } else if(keyDownD) {
+            train.decouple();
+        }
     }
 
     /**

@@ -13,7 +13,7 @@ public class Train
     public Train() {
         this.vehicles = new ArrayList<RailVehicle>();
         
-        this.gear = Gear.BACKWARD;
+        this.gear = Gear.FORWARD;
     }
     
     public Train(Locomotive loc) {
@@ -171,6 +171,10 @@ public class Train
         
         // Crash if necessary
         if(nextLeadingTrack == null) {
+            System.err.println("The train has left the track");
+            onCrash();
+        } else if(nextLeadingTrack.isOccupied()) {
+            System.err.println("The train hit a rail vehicle");
             onCrash();
         } else {
             // Depending on gear
@@ -183,8 +187,10 @@ public class Train
                     this.getFirstVehicle().moveTo(leadingVehicle.getX(), leadingVehicle.getY());
                 }
             } else /* gear = Gear.BACKWARD */ {
-                // There's always a loc, move it first
-                this.getLoc().moveTo(this.getFirstVehicle().getX(), this.getFirstVehicle().getY());
+                // If there is at least one more vehicle in the train than just the loc, move that vehicle)
+                if(this.getNumberOfVehicles() > 0) {
+                    this.getLoc().moveTo(this.getFirstVehicle().getX(), this.getFirstVehicle().getY());
+                }
                 // If there are more vehicles (except leading wagon and the loc), move them, too
                 if(this.getNumberOfVehicles() > 1) {                    
                     for(int i = 0; i < this.vehicles.size() - 1; i++) {

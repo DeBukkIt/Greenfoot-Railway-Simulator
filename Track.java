@@ -80,6 +80,10 @@ public abstract class Track extends Actor
         return false;
     }
     
+    public boolean isOccupied() {
+        return !this.getObjectsInRange(0, RailVehicle.class).isEmpty();
+    }
+    
     @Override
     public void act() 
     {
