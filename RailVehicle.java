@@ -1,4 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Ergänzen Sie hier eine Beschreibung für die Klasse RailVehicle.
@@ -51,4 +53,11 @@ public abstract class RailVehicle extends Actor
         direction = getTrackBelow().getReversedDirection(direction);
     }
     
+    public List<RailVehicle> getNearbyRailVehicles() {
+        List<RailVehicle> result = this.getObjectsAtOffset(0, 1, RailVehicle.class);
+        result.addAll(this.getObjectsAtOffset(0, -1, RailVehicle.class));
+        result.addAll(this.getObjectsAtOffset(1, 0, RailVehicle.class));
+        result.addAll(this.getObjectsAtOffset(-1, 0, RailVehicle.class));
+        return result;
+    }
 }

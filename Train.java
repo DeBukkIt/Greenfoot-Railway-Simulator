@@ -29,9 +29,7 @@ public class Train
     }
     
     public void act() {
-        if(!isCrashed()) {
-            moveOnRail();
-        }
+        move();
     }
     
     public void reverseGear() {
@@ -127,7 +125,38 @@ public class Train
         return this.isCrashed;
     }
     
-    public void moveOnRail() {
+    public void couple() {
+        // Couples a new wagon next to the last wagon of the train (or the loc, if there is no wagon already)
+        // Conditions:
+        // - new wagon is next to the last wagon
+        // - new wagon is on a side of the last wagon, where not other wagon or loc is already, i.e. it's not already part of the train
+        // - track below new wagon is connected to the track of the last wagon
+        // Be aware of:
+        // - on switches there might be multiple wagons fulfilling these conditions
+        // - if something like orientation is implemented, couple the wagon on the available side of the wagon (also solves switch problem)
+        
+        
+        RailVehicle couplingVehicle = this.hasVehicles() ? getLastVehicle() : getLoc();
+        
+        List<RailVehicle> nearbyVehicles = couplingVehicle.getNearbyRailVehicles();
+        for(RailVehicle candidate : nearbyVehicles) {
+            if(!this.vehicles.contains(candidate)) {
+                if(candidate.getTrackBelow() != null) {
+                    if(couplingVehicle.getTrackBelow().isConnectedWith(candidate.getTrackBelow())) {
+                        this.addVehicle(candidate);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    
+    public void move() {
+        if(isCrashed()) {
+            System.err.println("Train can't move, it's crashed");
+            return;
+        }
+        
         // Determine leading vehicle, current and next leading track and direction of next leading track
         RailVehicle leadingVehicle = this.getLeadingVehicle();
         Track currentLeadingTrack = leadingVehicle.getTrackBelow();

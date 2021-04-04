@@ -35,12 +35,7 @@ public class MyWorld extends World
     }
     
     public void act() {
-        train.act();
-        
-        Random rnd = new Random();
-        if(rnd.nextInt(100) < 2) {
-            train.reverseGear();
-        }
+        train.move();
     }
 
     /**
