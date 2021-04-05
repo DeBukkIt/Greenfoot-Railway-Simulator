@@ -1,13 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
 
 /**
- * Ergänzen Sie hier eine Beschreibung für die Klasse TrackVertical.
+ * Repräsentiert ein Gleis, das vertikal verläuft, d.h. eine bestimmte Art von Track.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author Leonard Bienbeck 
+ * @version 1.0.0
  */
 public class TrackVertical extends Track
 {
+     /**
+     * Erzeugt ein Gleis, das vertikal verläuft.
+     */
     public TrackVertical() {
         super(TrackType.VERTICAL);
     }

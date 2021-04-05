@@ -1,13 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
 
 /**
- * Ergänzen Sie hier eine Beschreibung für die Klasse TrackCurveLeftToDown.
+ * Repräsentiert eine Gleis-Kurve, die TOP und LEFT verbindet, d.h. eine bestimmte Art von Track.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author Leonard Bienbeck 
+ * @version 1.0.0
  */
 public class TrackCurveTopLeft extends Track
 {
+    /**
+     * Erzeugt eine neue Gleis-Kurve, die TOP und LEFT verbindet.
+     */
     public TrackCurveTopLeft() {
         super(TrackType.CURVE_TOPLEFT);
     }

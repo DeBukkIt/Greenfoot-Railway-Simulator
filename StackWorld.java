@@ -167,12 +167,53 @@ public class StackWorld extends World
         addObject(trackVertical20,12,8);
         TrackVertical trackVertical21 = new TrackVertical();
         addObject(trackVertical21,14,8);
-        
+
         addObject(wagon4, 2, 1);
         addObject(wagon3, 3, 1);
         addObject(wagon2, 4, 1);
         addObject(wagon1, 5, 1);
         addObject(loc, 6, 1);
+        trackHorizontal7.setLocation(7,0);
+        trackSwitchRightBottom.setLocation(7,1);
+        trackVertical.setLocation(7,2);
+        trackVertical2.setLocation(7,3);
+        trackVertical7.setLocation(8,4);
+        trackVertical10.setLocation(7,5);
+        trackVertical13.setLocation(7,6);
+        trackVertical16.setLocation(7,7);
+        trackVertical19.setLocation(7,8);
+        trackHorizontal10.setLocation(9,0);
+        trackSwitchRightBottom2.setLocation(10,1);
+        trackSwitchRightBottom2.setLocation(9,1);
+        trackHorizontal9.setLocation(10,1);
+        trackSwitchRightBottom3.setLocation(11,1);
+        trackHorizontal12.setLocation(12,1);
+        trackHorizontal12.setLocation(12,1);
+        trackHorizontal12.setLocation(13,1);
+        trackSwitchRightBottom3.setLocation(10,1);
+        trackHorizontal12.setLocation(12,1);
+        trackHorizontal10.setLocation(13,1);
+        trackHorizontal7.setLocation(14,1);
+        trackVertical3.setLocation(9,2);
+        trackVertical4.setLocation(9,3);
+        trackVertical8.setLocation(9,4);
+        trackVertical11.setLocation(9,5);
+        trackVertical11.setLocation(9,5);
+        trackVertical14.setLocation(9,6);
+        trackVertical17.setLocation(9,7);
+        trackVertical20.setLocation(9,8);
+        trackVertical21.setLocation(11,8);
+        trackVertical18.setLocation(11,7);
+        trackVertical15.setLocation(11,6);
+        trackVertical12.setLocation(11,5);
+        trackVertical9.setLocation(11,4);
+        trackVertical6.setLocation(11,3);
+        trackVertical5.setLocation(11,2);
+        trackVertical7.setLocation(7,4);
+        trackHorizontal9.setLocation(11,1);
+        trackHorizontal9.setLocation(10,0);
+        trackSwitchRightBottom3.setLocation(11,1);
+        trackHorizontal9.setLocation(10,1);
     }
     
     private void initTrackEnvironments() {
