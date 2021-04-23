@@ -24,7 +24,7 @@ public class TrackSwitchRightTop extends Switch
                 newDirection = this.isSwitched() ? Direction.TOP : Direction.LEFT;
                 break;
             default:
-                newDirection = Direction.LEFT;
+                newDirection = Direction.RIGHT;
                 break;
         }
         return this.getNeighbourAt(newDirection);

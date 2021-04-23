@@ -21,7 +21,7 @@ public class TrackSwitchTopLeft extends Switch
         Direction newDirection = null;
         switch(movingDirection) {
             case BOTTOM:
-                newDirection = this.isSwitched() ? Direction.BOTTOM : Direction.LEFT;
+                newDirection = this.isSwitched() ? Direction.LEFT : Direction.BOTTOM;
                 break;
             default:
                 newDirection = Direction.TOP;

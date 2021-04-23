@@ -305,10 +305,10 @@ public class Train
      * keinen Track unter sich hat oder falls der zu befahrende Track von einem anderen RailVehicle blockiert ist.
      */
     public void move() {
-        if(isCrashed()) {
+        /* if(isCrashed()) {
             System.err.println("Train can't move, it's crashed");
             return;
-        }
+        } */
         
         // Determine leading vehicle, current and next leading track and direction of next leading track
         RailVehicle leadingVehicle = this.getLeadingVehicle();

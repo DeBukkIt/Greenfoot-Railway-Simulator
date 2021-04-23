@@ -7,20 +7,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
  * @version 1.0.0
  */
 public class Wagon extends RailVehicle
-{
+{    
     /**
-     * Erzeugt einen Wagon. Die Bewegungsrichtung ist LEFT.
+     * Erzeugt einen Wagon. Die Bewegungsrichtung ist RIGHT, die Farbe ist BLUE.
      */
     public Wagon() {
-        this.setDirection(Direction.LEFT);
+        this(WagonColor.BLUE, Direction.RIGHT);
+    }
+    
+    private void setColor(WagonColor color) {
+        this.setImage("wagon_" + color.name().toLowerCase() + ".png");
     }
     
     /**
      * Erzeugt einen Wagon mit gegebener initialer Bewegungsrichtung.
      * @param initialDirection Die gegebene initiale Bewegungsrichtung
      */
-    public Wagon(Direction initialDirection) {
+    public Wagon(WagonColor color, Direction initialDirection) {
         super();
+        this.setColor(color);
         this.setDirection(initialDirection);        
     }
     

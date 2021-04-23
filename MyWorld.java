@@ -65,10 +65,10 @@ public class MyWorld extends World
         Wagon wagon4 = null;
         
         loc = new Locomotive(Direction.RIGHT);
-        wagon1 = new Wagon(Direction.LEFT);
-        wagon2 = new Wagon(Direction.LEFT);
-        wagon3 = new Wagon(Direction.LEFT);
-        wagon4 = new Wagon(Direction.LEFT);
+        wagon1 = new Wagon(WagonColor.RED, Direction.LEFT);
+        wagon2 = new Wagon(WagonColor.GREEN, Direction.LEFT);
+        wagon3 = new Wagon(WagonColor.BLUE, Direction.LEFT);
+        wagon4 = new Wagon(WagonColor.YELLOW, Direction.LEFT);
         
         train = new Train(loc, wagon1, wagon2, wagon3, wagon4);
         

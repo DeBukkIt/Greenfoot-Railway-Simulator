@@ -20,11 +20,11 @@ public class TrackSwitchRightBottom extends Switch
     public Track determineNextTrack(Direction movingDirection) {
         Direction newDirection = null;
         switch(movingDirection) {
-            case RIGHT:
-                newDirection = this.isSwitched() ? Direction.BOTTOM : Direction.RIGHT;
+            case LEFT:
+                newDirection = this.isSwitched() ? Direction.BOTTOM : Direction.LEFT;
                 break;
             default:
-                newDirection = Direction.LEFT;
+                newDirection = Direction.RIGHT;
                 break;
         }
         return this.getNeighbourAt(newDirection);
