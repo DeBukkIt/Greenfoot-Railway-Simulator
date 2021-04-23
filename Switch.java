@@ -13,14 +13,16 @@ public abstract class Switch extends Track
      * Gibt an, ob die Switch gestellt ist. Falls true, leitet sie RailVehicle zur Seite; andernfalls geradeaus.
      */
     private boolean isSwitched; // i.e. switch leads the train to the side (acts like a curve)
+    private String imageBaseName = "switch_";
     
     /**
      * Erzeugt eine Switch vom gegebenen TrackType. Der switched-Zustand wird mit false initialisiert:
      * Standardmäßig soll eine Switch sich darauf bewegende RailVehicle nicht zur Seite leiten.
      */
-    public Switch(TrackType trackType) {
+    public Switch(TrackType trackType, String imageBaseName) {
         super(trackType);
         this.isSwitched = false;
+        this.imageBaseName = imageBaseName;
     }
     
     /**
@@ -29,6 +31,7 @@ public abstract class Switch extends Track
      */
     public void setSwitched(boolean switched) {
         this.isSwitched = switched;
+        this.setImage(imageBaseName + (isSwitched() ? "1" : "0") + ".png");
     }
     
     /**

@@ -286,7 +286,7 @@ public class MyWorld extends World
         TrackHorizontal trackHorizontal64 = new TrackHorizontal();
         addObject(trackHorizontal64,12,11);
 
-        TrackSwitchRightBottom trackSwitchRightBottom = new TrackSwitchRightBottom();
+        TrackSwitchLeftBottom trackSwitchRightBottom = new TrackSwitchLeftBottom();
         addObject(trackSwitchRightBottom,6,8);
         TrackVertical trackVertical21 = new TrackVertical();
         addObject(trackVertical21,6,9);

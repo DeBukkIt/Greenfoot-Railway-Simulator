@@ -58,7 +58,6 @@ public class StackWorld extends World
                 if(focusedActor != null && focusedActor instanceof Switch) {
                     Switch clickedSwitch = (Switch) focusedActor;
                     clickedSwitch.toggleSwitched();
-                    System.out.println("Switch toggled");
                 }
             }
         }
@@ -96,8 +95,8 @@ public class StackWorld extends World
         addObject(trackHorizontal4,3,1);
         TrackHorizontal trackHorizontal5 = new TrackHorizontal();
         addObject(trackHorizontal5,4,1);
-        TrackSwitchRightBottom trackSwitchRightBottom = new TrackSwitchRightBottom();
-        addObject(trackSwitchRightBottom,5,1);
+        TrackSwitchLeftBottom TrackSwitchLeftBottom = new TrackSwitchLeftBottom();
+        addObject(TrackSwitchLeftBottom,5,1);
         TrackHorizontal trackHorizontal6 = new TrackHorizontal();
         addObject(trackHorizontal6,6,1);
         TrackHorizontal trackHorizontal7 = new TrackHorizontal();
@@ -110,19 +109,19 @@ public class StackWorld extends World
         addObject(trackHorizontal10,10,1);
         TrackHorizontal trackHorizontal11 = new TrackHorizontal();
         addObject(trackHorizontal11,11,1);
-        TrackSwitchRightBottom trackSwitchRightBottom2 = new TrackSwitchRightBottom();
-        addObject(trackSwitchRightBottom2,12,1);
+        TrackSwitchLeftBottom TrackSwitchLeftBottom2 = new TrackSwitchLeftBottom();
+        addObject(TrackSwitchLeftBottom2,12,1);
         TrackHorizontal trackHorizontal12 = new TrackHorizontal();
         addObject(trackHorizontal12,13,1);
-        TrackSwitchRightBottom trackSwitchRightBottom3 = new TrackSwitchRightBottom();
-        addObject(trackSwitchRightBottom3,14,1);
-        trackSwitchRightBottom.setLocation(5,1);
-        trackSwitchRightBottom.setLocation(12,2);
+        TrackSwitchLeftBottom TrackSwitchLeftBottom3 = new TrackSwitchLeftBottom();
+        addObject(TrackSwitchLeftBottom3,14,1);
+        TrackSwitchLeftBottom.setLocation(5,1);
+        TrackSwitchLeftBottom.setLocation(12,2);
         trackHorizontal11.setLocation(5,1);
-        trackSwitchRightBottom.setLocation(9,2);
+        TrackSwitchLeftBottom.setLocation(9,2);
         trackHorizontal9.setLocation(11,1);
         trackHorizontal10.setLocation(9,1);
-        trackSwitchRightBottom.setLocation(10,1);
+        TrackSwitchLeftBottom.setLocation(10,1);
         TrackHorizontal trackHorizontal13 = new TrackHorizontal();
         addObject(trackHorizontal13,15,1);
         TrackVertical trackVertical = new TrackVertical();
@@ -167,14 +166,8 @@ public class StackWorld extends World
         addObject(trackVertical20,12,8);
         TrackVertical trackVertical21 = new TrackVertical();
         addObject(trackVertical21,14,8);
-
-        addObject(wagon4, 2, 1);
-        addObject(wagon3, 3, 1);
-        addObject(wagon2, 4, 1);
-        addObject(wagon1, 5, 1);
-        addObject(loc, 6, 1);
         trackHorizontal7.setLocation(7,0);
-        trackSwitchRightBottom.setLocation(7,1);
+        TrackSwitchLeftBottom.setLocation(7,1);
         trackVertical.setLocation(7,2);
         trackVertical2.setLocation(7,3);
         trackVertical7.setLocation(8,4);
@@ -183,14 +176,14 @@ public class StackWorld extends World
         trackVertical16.setLocation(7,7);
         trackVertical19.setLocation(7,8);
         trackHorizontal10.setLocation(9,0);
-        trackSwitchRightBottom2.setLocation(10,1);
-        trackSwitchRightBottom2.setLocation(9,1);
+        TrackSwitchLeftBottom2.setLocation(10,1);
+        TrackSwitchLeftBottom2.setLocation(9,1);
         trackHorizontal9.setLocation(10,1);
-        trackSwitchRightBottom3.setLocation(11,1);
+        TrackSwitchLeftBottom3.setLocation(11,1);
         trackHorizontal12.setLocation(12,1);
         trackHorizontal12.setLocation(12,1);
         trackHorizontal12.setLocation(13,1);
-        trackSwitchRightBottom3.setLocation(10,1);
+        TrackSwitchLeftBottom3.setLocation(10,1);
         trackHorizontal12.setLocation(12,1);
         trackHorizontal10.setLocation(13,1);
         trackHorizontal7.setLocation(14,1);
@@ -212,8 +205,42 @@ public class StackWorld extends World
         trackVertical7.setLocation(7,4);
         trackHorizontal9.setLocation(11,1);
         trackHorizontal9.setLocation(10,0);
-        trackSwitchRightBottom3.setLocation(11,1);
+        TrackSwitchLeftBottom3.setLocation(11,1);
         trackHorizontal9.setLocation(10,1);
+        TrackSwitchBottomLeft trackSwitchBottomLeft = new TrackSwitchBottomLeft();
+        addObject(trackSwitchBottomLeft,9,9);
+        TrackCurveTopLeft trackCurveTopLeft = new TrackCurveTopLeft();
+        addObject(trackCurveTopLeft,11,9);
+        TrackCurveTopRight trackCurveTopRight = new TrackCurveTopRight();
+        addObject(trackCurveTopRight,7,9);
+        TrackHorizontal trackHorizontal14 = new TrackHorizontal();
+        addObject(trackHorizontal14,8,9);
+        TrackHorizontal trackHorizontal15 = new TrackHorizontal();
+        addObject(trackHorizontal15,10,9);
+        TrackVertical trackVertical22 = new TrackVertical();
+        addObject(trackVertical22,9,10);
+        TrackCurveTopRight trackCurveTopRight2 = new TrackCurveTopRight();
+        addObject(trackCurveTopRight2,9,11);
+        TrackHorizontal trackHorizontal16 = new TrackHorizontal();
+        addObject(trackHorizontal16,10,11);
+        TrackHorizontal trackHorizontal17 = new TrackHorizontal();
+        addObject(trackHorizontal17,11,11);
+        TrackHorizontal trackHorizontal18 = new TrackHorizontal();
+        addObject(trackHorizontal18,12,11);
+        TrackHorizontal trackHorizontal19 = new TrackHorizontal();
+        addObject(trackHorizontal19,13,11);
+        TrackHorizontal trackHorizontal20 = new TrackHorizontal();
+        addObject(trackHorizontal20,14,11);
+        TrackHorizontal trackHorizontal21 = new TrackHorizontal();
+        addObject(trackHorizontal21,15,11);
+        
+        
+
+        addObject(wagon4, 2, 1);
+        addObject(wagon3, 3, 1);
+        addObject(wagon2, 4, 1);
+        addObject(wagon1, 5, 1);
+        addObject(loc, 6, 1);
     }
     
     private void initTrackEnvironments() {

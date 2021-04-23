@@ -1,19 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
 
 /**
- * Repräsentiert eine RIGHT-BOTTOM-Switch, d.h. Weiche, die von links kommende
+ * Repräsentiert eine LEFT-BOTTOM-Switch, d.h. Weiche, die von links kommende
  * Züge im ungestellten Zustand horizontal leitet, im gestellten Zustand nach unten.
  * 
  * @author Leonard Bienbeck
  * @version 1.0.0
  */
-public class TrackSwitchRightBottom extends Switch
+public class TrackSwitchLeftBottom extends Switch
 {    
     /**
-     * Erzeugt eine RIGHT-BOTTOM-Switch
+     * Erzeugt eine LEFT-BOTTOM-Switch
      */
-    public TrackSwitchRightBottom() {
-        super(TrackType.SWITCH_RIGHTBOTTOM);
+    public TrackSwitchLeftBottom() {
+        super(TrackType.SWITCH_LEFTBOTTOM, "switch_left_bottom_");
+        super.setSwitched(false);
     }
     
     public Track determineNextTrack(Direction movingDirection) {
@@ -35,8 +36,9 @@ public class TrackSwitchRightBottom extends Switch
     public Direction getReversedDirection(Direction movingDirection) {
         switch(movingDirection) {
             case RIGHT: return this.isSwitched() ? Direction.TOP : Direction.LEFT;
-            case LEFT: return this.isSwitched() ? Direction.BOTTOM : Direction.RIGHT;
-            case TOP: return Direction.RIGHT;
+            case TOP: return Direction.BOTTOM;
+            case LEFT: return Direction.RIGHT;
+            
             default: return Direction.RIGHT;
         }
     }

@@ -12,11 +12,21 @@ public enum TrackType
 {
     HORIZONTAL(false, true, false, true),
     VERTICAL(true, false, true, false),
+    
     CURVE_LEFTBOTTOM(false, false, true, true),
     CURVE_TOPLEFT(true, false, false, true),
     CURVE_TOPRIGHT(true, true, false, false),
     CURVE_RIGHTBOTTOM(false, true, true, false),
-    SWITCH_RIGHTBOTTOM(false, true, true, true);
+    
+    SWITCH_BOTTOMLEFT(true, false, true, true),
+    SWITCH_BOTTOMRIGHT(true, true, true, false),
+    SWITCH_LEFTBOTTOM(false, true, true, true),
+    SWITCH_LEFTTOP(true, true, false, true),
+    
+    SWITCH_RIGHTBOTTOM(false, true, true, true),
+    SWITCH_RIGHTTOP(true, true, false, true),
+    SWITCH_TOPLEFT(true, false, true, true),
+    SWITCH_TOPRIGHT(true, true, true, false);
     
     /**
      * Gibt an, ob ein Track mit diesem TrackType eine Verbindung zu einem darüber (TOP) liegenden Track ausbilden kann
