@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
 
 /**
- * Repräsentiert eine BOTTOM-LEFT-Switch, d.h. Weiche, die von unten kommende
- * Züge im ungestellten Zustand vertikal leitet, im gestellten Zustand nach links.
+ * Repräsentiert eine BOTTOM-RIGHT-Switch, d.h. Weiche, die von unten kommende
+ * Züge im ungestellten Zustand vertikal leitet, im gestellten Zustand nach rechts.
  * 
  * @author Leonard Bienbeck
  * @version 1.0.0
  */
-public class TrackSwitchBottomLeft extends Switch
+public class TrackSwitchBottomRight extends Switch
 {    
     /**
-     * Erzeugt eine BOTTOM-LEFT-Switch
+     * Erzeugt eine BOTTOM-RIGHT-Switch
      */
-    public TrackSwitchBottomLeft() {
-        super(TrackType.SWITCH_BOTTOMLEFT, "switch_bottom_left_");
+    public TrackSwitchBottomRight() {
+        super(TrackType.SWITCH_BOTTOMRIGHT, "switch_bottom_right_");
         super.setSwitched(false);
     }
     
@@ -21,7 +21,7 @@ public class TrackSwitchBottomLeft extends Switch
         Direction newDirection = null;
         switch(movingDirection) {
             case TOP:
-                newDirection = this.isSwitched() ? Direction.LEFT : Direction.TOP;
+                newDirection = this.isSwitched() ? Direction.RIGHT : Direction.TOP;
                 break;
             default:
                 newDirection = Direction.BOTTOM;
@@ -32,8 +32,8 @@ public class TrackSwitchBottomLeft extends Switch
         
     public Direction getReversedDirection(Direction movingDirection) {
         switch(movingDirection) {
-            case TOP: return this.isSwitched() ? Direction.RIGHT : Direction.BOTTOM;
-            case RIGHT: return this.isSwitched() ? Direction.TOP : Direction.LEFT;
+            case TOP: return this.isSwitched() ? Direction.LEFT : Direction.BOTTOM;
+            case LEFT: return this.isSwitched() ? Direction.TOP : Direction.RIGHT;
             case BOTTOM: return Direction.TOP;
 
             default: return Direction.TOP;

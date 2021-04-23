@@ -233,14 +233,31 @@ public class StackWorld extends World
         addObject(trackHorizontal20,14,11);
         TrackHorizontal trackHorizontal21 = new TrackHorizontal();
         addObject(trackHorizontal21,15,11);
-        
-        
+        TrackSwitchLeftTop trackSwitchLeftTop = new TrackSwitchLeftTop();
+        addObject(trackSwitchLeftTop,13,6);
+        removeObject(trackVertical15);
+        TrackSwitchBottomRight trackSwitchBottomRight = new TrackSwitchBottomRight();
+        addObject(trackSwitchBottomRight,11,6);
+        TrackHorizontal trackHorizontal22 = new TrackHorizontal();
+        addObject(trackHorizontal22,12,6);
+        TrackVertical trackVertical23 = new TrackVertical();
+        addObject(trackVertical23,13,4);
+        TrackVertical trackVertical24 = new TrackVertical();
+        addObject(trackVertical24,13,3);
+        TrackVertical trackVertical25 = new TrackVertical();
+        addObject(trackVertical25,13,2);
 
         addObject(wagon4, 2, 1);
         addObject(wagon3, 3, 1);
         addObject(wagon2, 4, 1);
         addObject(wagon1, 5, 1);
         addObject(loc, 6, 1);
+        TrackVertical trackVertical26 = new TrackVertical();
+        addObject(trackVertical26,13,5);
+        trackSwitchBottomLeft.setLocation(9,9);
+        removeObject(trackSwitchBottomLeft);
+        TrackHorizontal trackHorizontal23 = new TrackHorizontal();
+        addObject(trackHorizontal23,9,9);
     }
     
     private void initTrackEnvironments() {
