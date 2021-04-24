@@ -65,7 +65,7 @@ public abstract class RailVehicle extends Actor
         int oldY = getY();
         // Call super class function
         super.setLocation(newX, newY);
-        // Update direction attribute depending on position change    
+        // Update direction attribute and image rotation depending on position change 
         if(newX > oldX) {
             direction = Direction.RIGHT;
         } else if(newX < oldX) {
@@ -75,6 +75,23 @@ public abstract class RailVehicle extends Actor
         } else if(newY < oldY) {
             direction = Direction.TOP;
         }       
+        updateRotation(direction);
+    }
+    
+    /**
+     * Aktualisiert die Rotation des RailVehicle, die sich durch bestimmte Drehrichtung des Images bemerkbar macht,
+     * in Abhängigkeit von der gegebenen Direction.
+     * @param Die gegebene Direction, bspw. RIGHT für eine Rotation nach rechts (0 Grad) oder TOP für eine Rotation
+     * nach oben (270 Grad). Siehe {@link greenfoot.Actor#setRotation setRotation}
+     */
+    private void updateRotation(Direction direction) {
+        // TODO Make locomotive not turn in opposite direction on track. That's physically improbable.
+        switch(direction) {
+            case TOP: setRotation(270); break;
+            case RIGHT: setRotation(0); break;
+            case BOTTOM: setRotation(90); break;
+            case LEFT: setRotation(180); break;
+        }
     }
     
     /**
@@ -90,6 +107,7 @@ public abstract class RailVehicle extends Actor
         // just the opposite direction, but depends on the track below:
         // e.g. a movement to the LEFT onto a bottom-right curve must be "inverted" to TOP
         direction = getTrackBelow().getReversedDirection(direction);
+        updateRotation(direction);
     }
     
     /**
