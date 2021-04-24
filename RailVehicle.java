@@ -105,4 +105,18 @@ public abstract class RailVehicle extends Actor
         result.addAll(this.getObjectsAtOffset(-1, 0, RailVehicle.class));
         return result;
     }
+    
+    /**
+     * Diese Methode wird aufgerufen, wenn das RailVehicle angekuppelt wird. Sie kann in einer
+     * Nachfolgeklasse überschrieben werden, um Funktionalität hinzuzufügen, beispielsweise um
+     * das Image des RailVehicle beim Ankuppeln zu verändern.
+     */
+    public void onCouple() {};
+    
+    /**
+     * Diese Methode wird aufgerufen, wenn das RailVehicle abgekuppelt wird. Sie kann in einer
+     * Nachfolgeklasse überschrieben werden, um Funktionalität hinzuzufügen, beispielsweise um
+     * das Image des RailVehicle beim Abkuppeln zu verändern.
+     */    
+    public void onDecouple() {};
 }

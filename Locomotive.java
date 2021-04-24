@@ -10,6 +10,12 @@ import java.util.List;
 public class Locomotive extends RailVehicle
 {
     /**
+     * Anzahl der Inversionsvorgänge der Direction. Mit Hilfe dieser Angabe kann die Methode <code>invertDirection</code> bestimmen,
+     * welches Image die Locomotive haben muss, um mit der aktuellen Richtung übereinzustimmen.
+     */
+    private int directionIversionCounter = 0;
+    
+    /**
      * Erzeugt eine Locomotive. Ihre Bewegungsrichtung ist RIGHT.
      */
     public Locomotive() {
@@ -23,6 +29,19 @@ public class Locomotive extends RailVehicle
     public Locomotive(Direction initialDirection) {
         super();
         this.setDirection(initialDirection);
+    }
+    
+    @Override
+    public void invertDirection() {
+        super.invertDirection();
+        
+        // Set image of locomotive according to current gear (forward / reverse)
+        if(directionIversionCounter % 2 == 0) {
+            setImage("loc_reverse.png");
+        } else {
+            setImage("loc.png");
+        }
+        directionIversionCounter++;
     }
     
     /**

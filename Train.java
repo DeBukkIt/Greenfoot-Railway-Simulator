@@ -38,7 +38,7 @@ public class Train
     private boolean isCrashed;
     
     /**
-     * Erzeugt einen neuen, leeren Train.
+     * Erzeugt einen neuen, leeren Train. Der Vorwärtsgang ist eingelegt.
      */
     private Train() {
         this.vehicles = new ArrayList<RailVehicle>();
@@ -47,7 +47,7 @@ public class Train
     }
     
     /**
-     * Erzeugt einen neuen Train mit der gegebenen Locomotive.
+     * Erzeugt einen neuen Train mit der gegebenen Locomotive. Der Vorwärtsgang ist eingelegt.
      * @param loc   Die Locomotive, die den Train bewegen soll.
      */
     public Train(Locomotive loc) {
@@ -272,6 +272,7 @@ public class Train
                 if(candidate.getTrackBelow() != null) {
                     if(couplingVehicle.getTrackBelow().isConnectedWith(candidate.getTrackBelow())) {
                         this.addVehicle(candidate);
+                        candidate.onCouple();
                         break;
                     }
                 }
@@ -286,6 +287,7 @@ public class Train
      */
     public void decouple() {
         if(this.hasVehicles()) {
+            this.getVehicle(this.getNumberOfVehicles() - 1).onDecouple();
             this.removeVehicle(this.getNumberOfVehicles() - 1);
         }
     }
