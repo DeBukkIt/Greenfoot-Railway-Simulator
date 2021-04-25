@@ -93,6 +93,7 @@ public abstract class RailVehicle extends Actor
             case LEFT: setRotation(180); break;
         }
         // Make RailVehicles not turn in opposite direction on track. That's physically improbable.
+        // TODO This works really well, but does not work if Locomotive is alone in the train :-(
         if(gear == Gear.BACKWARD) {
             setRotation(getRotation() + 180 % 360);
         }

@@ -262,8 +262,8 @@ public class Train
         // Be aware of:
         // - on switches there might be multiple wagons fulfilling these conditions
         // - if something like orientation is implemented, couple the wagon on the available side of the wagon (also solves switch problem)
-        
-        
+                
+        // TODO There still is a problem somewhere here when all but one Vehicles are decoupled!
         RailVehicle couplingVehicle = this.hasVehicles() ? getLastVehicle() : getLoc();
         
         List<RailVehicle> nearbyVehicles = couplingVehicle.getNearbyRailVehicles();
