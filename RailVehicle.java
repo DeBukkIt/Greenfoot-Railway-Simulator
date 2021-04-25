@@ -59,7 +59,7 @@ public abstract class RailVehicle extends Actor
      * @param newX  Die X-Koordinaten der neuen Position
      * @param newY  Die Y-Koordinate der neuen Position
      */
-    public void moveTo(int newX, int newY) {
+    public void moveTo(int newX, int newY, Gear gear) {
         // Remember old coordinates
         int oldX = getX();
         int oldY = getY();
@@ -75,7 +75,7 @@ public abstract class RailVehicle extends Actor
         } else if(newY < oldY) {
             direction = Direction.TOP;
         }       
-        updateRotation(direction);
+        updateRotation(direction, gear);
     }
     
     /**
@@ -84,14 +84,23 @@ public abstract class RailVehicle extends Actor
      * @param Die gegebene Direction, bspw. RIGHT für eine Rotation nach rechts (0 Grad) oder TOP für eine Rotation
      * nach oben (270 Grad). Siehe {@link greenfoot.Actor#setRotation setRotation}
      */
-    private void updateRotation(Direction direction) {
-        // TODO Make locomotive not turn in opposite direction on track. That's physically improbable.
+    private void updateRotation(Direction direction, Gear gear) {
+        int oldRotation = getRotation();
         switch(direction) {
             case TOP: setRotation(270); break;
             case RIGHT: setRotation(0); break;
             case BOTTOM: setRotation(90); break;
             case LEFT: setRotation(180); break;
         }
+        // Make RailVehicles not turn in opposite direction on track. That's physically improbable.
+        if(gear == Gear.BACKWARD) {
+            setRotation(getRotation() + 180 % 360);
+        }
+        /*
+        if(getRotation() - oldRotation > 90) {
+            setRotation(oldRotation);
+        }
+        */
     }
     
     /**
@@ -102,12 +111,12 @@ public abstract class RailVehicle extends Actor
      * invertiert zu einer Bewegung TOP, sodass die Kurve statt einer Weiterleitung nach BOTTOM eine Weiterleitung
      * nach RIGHT gewährleistet.
      */
-    public void invertDirection() {
+    public void invertDirection(Gear newGear) {
         // This is needed for gear changes (forward/backward) and this IS NOT always
         // just the opposite direction, but depends on the track below:
         // e.g. a movement to the LEFT onto a bottom-right curve must be "inverted" to TOP
         direction = getTrackBelow().getReversedDirection(direction);
-        updateRotation(direction);
+        updateRotation(direction, newGear);
     }
     
     /**

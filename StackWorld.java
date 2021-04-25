@@ -3,25 +3,40 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Write a description of class StackWorld here.
+ * Repräsentiert eine World, in der Tracks so angeordnet sind, dass ein Train seine Waggons
+ * darauf mittels des StackSort-Algorithmus sortieren kann.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Leonard Bienbeck
+ * @version 1.0.0
  */
 public class StackWorld extends World
 {    
-    Train train;
+    /**
+     * Der Train, bestehend aus einer Locomotive und ein paar bunten Wagons
+     */
+    private Train train;
     
+    /**
+     * Konstruiert die StackWorld. Als Orientierungshilfe wird das vorgegebene Raster
+     * mit dünnen, grauen Linien in den Hintergrund gezeichnet.
+     */
     public StackWorld()
     {    
-        // Create a new world with 32x22 cells with a cell size of 32x32 pixels.
+        // Create a new world with 16x12 cells with a cell size of 64x64 pixels.
         super(16, 12, 64);
 
+        // Paint the background grid
         paintBackgroundGrid();
+        
+        // Initialize Actors
         prepare();
-        initTrackEnvironments();
+        setPaintOrder(RailVehicle.class, Track.class, World.class);
     }
 
+    /**
+     * Zeichnet ein graues Raster in den Hintergrund, sodass die per Super-Konstruktor festgelegten
+     * Zellen sichtbar werden.
+     */
     private void paintBackgroundGrid() {
         GreenfootImage bg = getBackground();
 
@@ -34,6 +49,10 @@ public class StackWorld extends World
         }
     }
     
+    /**
+     * Verarbeitet Tastatur- und Mauseingaben, steuert den Train in Abhängigkeit von der Eingabe und
+     * Switches in Abhängigkeit von der angeklickten Stelle.
+     */
     public void act() {
         // Train controls
         boolean keyDownM = Greenfoot.isKeyDown("m");
@@ -64,8 +83,8 @@ public class StackWorld extends World
     }
 
     /**
-     * Bereite die Welt für den Programmstart vor.
-     * Das heißt: Erzeuge die Anfangs-Objekte und füge sie der Welt hinzu.
+     * Bereite die Welt für den Programmstart vor, indem RailVehicles und Tracks
+     * initialisiert und platziert werden.
      */
     private void prepare()
     {
@@ -189,6 +208,22 @@ public class StackWorld extends World
         addObject(loc, 6, 1);
     }
     
+    /**
+     * Macht die Tracks beim Programmstart mit den umgebenden Tracks vertraut, sodass der Train später
+     * zuverlässug an benachbarte Tracks weitergeleitet werden kann.
+     */
+    @Override
+    public void started() {
+        super.started();
+        initTrackEnvironments();
+    }
+    
+    /**
+     * Macht die Tracks mit den umgebenden Tracks vertraut, sodass der Train später
+     * zuverlässug an benachbarte Tracks weitergeleitet werden kann. Hierzu wird die entsprechende
+     * Methode {@link Track#findNeighbouringTracks findNeighbouringTracks()} aller platzierten
+     * Tracks aufgerufen.
+     */
     private void initTrackEnvironments() {
         // Initialize tracks' environment
         List<Track> allTracks = getObjects(Track.class);
