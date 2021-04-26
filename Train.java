@@ -354,4 +354,21 @@ public class Train
         }
     }
     
+    /**
+     * Gibt an, ob der nächste zu befahrende Track (bei Fortsetzung der Fahrt mit aktuellen Einstellungen,
+     * z. B. aktuellem Gear) von einem Hindernis versperrt oder gar nicht erst vorhanden ist.<br>
+     * Diese Methode ist besonders hilfreich, wenn der Train ohne manuelle Eingaben, sondern automatisiert
+     * bewegt werden soll. Das Ende eines Gleises ebenso wie ein RailVehicle auf den Schienen kann auf diese
+     * Weise erkannt werden.
+     * @return true, falls der nächste zu befahrende Track von einem Hindernis versperrt oder gar nicht
+     * erst vorhanden ist; false sonst.
+     */
+    public boolean isObstacleAhead() {
+        RailVehicle leadingVehicle = this.getLeadingVehicle();
+        Track currentLeadingTrack = leadingVehicle.getTrackBelow();
+        Track nextLeadingTrack = currentLeadingTrack.determineNextTrack(leadingVehicle.getDirection());
+        
+        return nextLeadingTrack == null ? true : nextLeadingTrack.isOccupied();
+    }
+    
 }
