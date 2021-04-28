@@ -13,7 +13,7 @@ public class TrackSwitchTopRight extends Switch
      * Erzeugt eine TOP-RIGHT-Switch
      */
     public TrackSwitchTopRight() {
-        super(TrackType.SWITCH_TOPRIGHT, "switch_top_right");
+        super(TrackType.SWITCH_TOPRIGHT, "switch_top_right_");
         super.setSwitched(false);
     }
     
