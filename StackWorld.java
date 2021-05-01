@@ -16,6 +16,11 @@ public class StackWorld extends World
      */
     private Train train;
     
+    // The switches to be controlled by program code (act method)
+    private TrackSwitchRightBottom trackSwitchRightBottom = new TrackSwitchRightBottom();
+    private TrackSwitchRightBottom trackSwitchRightBottom2 = new TrackSwitchRightBottom();
+    private TrackSwitchRightBottom trackSwitchRightBottom3 = new TrackSwitchRightBottom();
+    
     /**
      * Konstruiert die StackWorld. Als Orientierungshilfe wird das vorgegebene Raster
      * mit dünnen, grauen Linien in den Hintergrund gezeichnet.
@@ -81,6 +86,65 @@ public class StackWorld extends World
             }
         }
     }
+    
+    /**
+     * Beispiel-Implementierung einer programmgesteuerten Kontrolle des Trains,
+     * um Wagons in Abhängigkeit von ihrem Inhalt auf verschiedene Gleise zu schieben und
+     * von dort wieder abzuholen.<br>
+     * <br>
+     * Alternativ zu dieser programmgesteuerten Kontrolle ist die Kontrolle der Bewegungen
+     * per Tastatur und Mausklick.
+     */
+    /*
+    public void act() {
+        this.started();        
+        
+        int smallestContent = Integer.MAX_VALUE;
+        
+        // Put all wagons onto one stack
+        moveTillEnd();
+        trackSwitchRightBottom.setSwitched(true);
+        train.reverseGear();
+        moveTillEnd();
+        while(train.hasVehicles()) {
+            train.decouple();
+        }
+        
+        // Find smallest
+        while(train.isWagonAvailbleForCoupling()) {
+            // Take one wagon
+            train.couple();
+            train.reverseGear();
+            moveTillEnd();
+            
+            // Bring it to another stack
+            trackSwitchRightBottom2.setSwitched(true);
+            train.reverseGear();
+            moveTillEnd();
+            // Check if it's the smallest value yet
+            if(((Wagon) train.getFirstVehicle()).getContent() < smallestContent) {
+                smallestContent = ((Wagon) train.getFirstVehicle()).getContent();
+            }
+            train.decouple();
+            
+            // Move into first stack again
+            train.reverseGear();
+            moveTillEnd();
+            trackSwitchRightBottom2.setSwitched(false);
+            train.reverseGear();
+            moveTillEnd();
+        }
+
+        // Do other fun stuff with the train...
+    }
+    
+    private void moveTillEnd() {
+        while(!train.isObstacleAhead()) {
+            train.move();
+            Greenfoot.delay(3);
+        }
+    }
+    */
 
     /**
      * Bereite die Welt für den Programmstart vor, indem RailVehicles und Tracks
@@ -96,11 +160,11 @@ public class StackWorld extends World
         Wagon wagon4 = null;
 
         loc = new Locomotive(Direction.RIGHT);
-        wagon1 = new Wagon(WagonColor.RED, Direction.LEFT);
-        wagon2 = new Wagon(WagonColor.GREEN, Direction.LEFT);
-        wagon3 = new Wagon(WagonColor.BLUE, Direction.LEFT);
-        wagon4 = new Wagon(WagonColor.YELLOW, Direction.LEFT);
-
+        wagon1 = new Wagon(17, WagonColor.RED, Direction.LEFT);
+        wagon2 = new Wagon(5, WagonColor.GREEN, Direction.LEFT);
+        wagon3 = new Wagon(12, WagonColor.BLUE, Direction.LEFT);
+        wagon4 = new Wagon(36, WagonColor.YELLOW, Direction.LEFT);
+        
         train = new Train(loc, wagon1, wagon2, wagon3, wagon4);
 
         // Place train
@@ -205,11 +269,9 @@ public class StackWorld extends World
         addObject(trackVertical33,11,9);
         TrackVertical trackVertical34 = new TrackVertical();
         addObject(trackVertical34,11,10);
-        TrackSwitchRightBottom trackSwitchRightBottom = new TrackSwitchRightBottom();
+        
         addObject(trackSwitchRightBottom,7,1);
-        TrackSwitchRightBottom trackSwitchRightBottom2 = new TrackSwitchRightBottom();
         addObject(trackSwitchRightBottom2,9,1);
-        TrackSwitchRightBottom trackSwitchRightBottom3 = new TrackSwitchRightBottom();
         addObject(trackSwitchRightBottom3,11,1);
     }
     

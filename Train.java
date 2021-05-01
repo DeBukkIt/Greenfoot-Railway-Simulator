@@ -371,4 +371,26 @@ public class Train
         return nextLeadingTrack == null ? true : nextLeadingTrack.isOccupied();
     }
     
+    /**
+     * Gibt an, ob ein Wagon zum Kuppeln bereitsteht, d.h. an der richtigen Position, die für ein Kuppeln
+     * erforderlich ist.
+     * @return true, falls ob ein Wagon zum Kuppeln bereitsteht, d.h. an der richtigen Position, die für ein Kuppeln
+     * erforderlich ist; false sonst.
+     */
+    public boolean isWagonAvailbleForCoupling() {
+        RailVehicle couplingVehicle = this.hasVehicles() ? getLastVehicle() : getLoc();
+        
+        List<RailVehicle> nearbyVehicles = couplingVehicle.getNearbyRailVehicles();
+        for(RailVehicle candidate : nearbyVehicles) {
+            if(!this.vehicles.contains(candidate) && !this.getLoc().equals(candidate)) {
+                if(candidate.getTrackBelow() != null) {
+                    if(couplingVehicle.getTrackBelow().isConnectedWith(candidate.getTrackBelow())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
 }

@@ -37,7 +37,7 @@ public abstract class RailVehicle extends Actor
      * Falls das RailVehicle auf mehr als einem Track steht, wird nur einer der Tracks zurückgegeben.
      */
     public Track getTrackBelow() {
-        List<Track> results = this.getObjectsInRange(0, Track.class);
+        List<Track> results = this.getIntersectingObjects(Track.class);
         if(results.size() >= 1) {
             return results.get(0);
         }
