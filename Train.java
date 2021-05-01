@@ -377,7 +377,7 @@ public class Train
      * @return true, falls ob ein Wagon zum Kuppeln bereitsteht, d.h. an der richtigen Position, die für ein Kuppeln
      * erforderlich ist; false sonst.
      */
-    public boolean isWagonAvailbleForCoupling() {
+    public boolean isWagonAvailableForCoupling() {
         RailVehicle couplingVehicle = this.hasVehicles() ? getLastVehicle() : getLoc();
         
         List<RailVehicle> nearbyVehicles = couplingVehicle.getNearbyRailVehicles();
