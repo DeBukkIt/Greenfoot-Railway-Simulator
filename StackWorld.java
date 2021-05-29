@@ -137,6 +137,7 @@ public class StackWorld extends World
 
         // Do other fun stuff with the train...
     }
+    */
     
     private void moveTillEnd() {
         while(!train.isObstacleAhead()) {
@@ -144,7 +145,7 @@ public class StackWorld extends World
             Greenfoot.delay(3);
         }
     }
-    */
+    
 
     /**
      * Bereite die Welt für den Programmstart vor, indem RailVehicles und Tracks
