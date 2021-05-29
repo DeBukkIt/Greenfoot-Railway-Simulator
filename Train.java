@@ -321,7 +321,7 @@ public class Train
         if(nextLeadingTrack == null) {
             System.err.println("The train has left the track");
             onCrash();
-        } else if(nextLeadingTrack.isOccupied()) {
+        } else if(nextLeadingTrack.isOccupiedByRailVehicle()) {
             System.err.println("The train hit a rail vehicle");
             onCrash();
         } else {
@@ -368,7 +368,7 @@ public class Train
         Track currentLeadingTrack = leadingVehicle.getTrackBelow();
         Track nextLeadingTrack = currentLeadingTrack.determineNextTrack(leadingVehicle.getDirection());
         
-        return nextLeadingTrack == null ? true : nextLeadingTrack.isOccupied();
+        return nextLeadingTrack == null ? true : nextLeadingTrack.isOccupiedByRailVehicle();
     }
     
     /**

@@ -150,8 +150,8 @@ public abstract class Track extends Actor
      * Gibt an, ob sich im Moment des Aufrufs ein RailVehicle auf dem Track befindet.
      * @return true, falls sich im Moment des Aufrufs ein RailVehicle auf dem Track befindet; false andernfalls
      */
-    public boolean isOccupied() {
-        return !this.getIntersectingObjects(null).isEmpty();
+    public boolean isOccupiedByRailVehicle() {
+        return !this.getIntersectingObjects(RailVehicle.class).isEmpty();
     }
     
     /**
