@@ -58,7 +58,6 @@ public class StackWorld extends World
      * Verarbeitet Tastatur- und Mauseingaben, steuert den Train in Abhängigkeit von der Eingabe und
      * Switches in Abhängigkeit von der angeklickten Stelle.
      */
-    /*
     public void act() {
         // Train controls
         boolean keyDownM = Greenfoot.isKeyDown("m");
@@ -87,7 +86,6 @@ public class StackWorld extends World
             }
         }
     }
-    */
     
     /**
      * Beispiel-Implementierung einer programmgesteuerten Kontrolle des Trains,
@@ -97,6 +95,7 @@ public class StackWorld extends World
      * Alternativ zu dieser programmgesteuerten Kontrolle ist die Kontrolle der Bewegungen
      * per Tastatur und Mausklick.
      */
+    /*
     public void act() {
         this.started();        
         
@@ -145,6 +144,7 @@ public class StackWorld extends World
             Greenfoot.delay(3);
         }
     }
+    */
 
     /**
      * Bereite die Welt für den Programmstart vor, indem RailVehicles und Tracks
