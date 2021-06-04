@@ -160,10 +160,10 @@ public class StackWorld extends World
         Wagon wagon4 = null;
 
         loc = new Locomotive(Direction.RIGHT);
-        wagon1 = new Wagon(17, WagonColor.RED, Direction.LEFT);
-        wagon2 = new Wagon(5, WagonColor.GREEN, Direction.LEFT);
-        wagon3 = new Wagon(12, WagonColor.BLUE, Direction.LEFT);
-        wagon4 = new Wagon(36, WagonColor.YELLOW, Direction.LEFT);
+        wagon1 = new Wagon(3, WagonColor.RED, Direction.LEFT);
+        wagon2 = new Wagon(1, WagonColor.GREEN, Direction.LEFT);
+        wagon3 = new Wagon(2, WagonColor.BLUE, Direction.LEFT);
+        wagon4 = new Wagon(4, WagonColor.YELLOW, Direction.LEFT);
         
         train = new Train(loc, wagon1, wagon2, wagon3, wagon4);
 
