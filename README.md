@@ -2,9 +2,6 @@
 Simple Greenfoot Railway Simulator for school and educational purposes.
 
 ## Content
-
-<img align="right" height="480" style="float: right;" src="https://debukkit.github.io/images/Greenfoot-Railway-Simulator_Assets.JPG"></img>
-
 By design this scenario consists of
 - two types of rail vehicles:
   - locomotive and
@@ -30,5 +27,5 @@ or by using programming instructions that control the train over the tracks depe
 ## Preview
 
 <p align="center">
-<img src="https://debukkit.github.io/images/Greenfoot-Railway-Simulator.JPG"></img>
+<img src="https://github.com/DeBukkIt/Greenfoot-Railway-Simulator/assets/1151380/631d9d2e-0ea1-497b-bc09-e19fa7847dd8"></img>
 </p>
